@@ -43,7 +43,9 @@ export class BeeCountDO extends DurableObject<BackupPackEnv> {
   private buffer: Array<{ id: number; level: string; source: string; message: string; timestamp: string }> = [];
   private maxLogSize = 1000;
   private nextSeq = 0;
-
+  async alarm() {
+  // 处理定时清理或后台导入任务
+  }
   async fetch(request: Request): Promise<Response> {
     const url = new URL(request.url);
     const path = url.pathname;
